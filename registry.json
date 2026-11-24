@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-11-24T10:57:05Z",
+  "plugins": [
+    {
+      "id": "deepseek-balance",
+      "name": "DeepSeek Balance",
+      "version": "1.0.0",
+      "description": "在输入框下方状态栏显示 DeepSeek 账户余额与今日已用，点击查看明细（充值/赠金/峰谷时段）",
+      "author": {
+        "name": "gasdyueer",
+        "url": "https://github.com/gasdyueer"
+      },
+      "type": [
+        "ui"
+      ],
+      "tags": [
+        "deepseek",
+        "balance",
+        "cost",
+        "usage",
+        "status-bar",
+        "utility"
+      ],
+      "repository": "https://github.com/gasdyueer/alma-plugin-deepseek-balance",
+      "path": "plugins/deepseek-balance",
+      "downloads": 0,
+      "rating": 0,
+      "featured": false
+    }
+  ]
+}

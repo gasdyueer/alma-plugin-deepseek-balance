@@ -1,0 +1,10 @@
+{
+  "name": "alma-plugin-deepseek-balance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DeepSeek account balance and daily spend in the Alma status bar",
+  "license": "MIT",
+  "scripts": {
+    "lint": "node scripts/lint-versions.mjs"
+  }
+}

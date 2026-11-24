@@ -1,0 +1,93 @@
+{
+  "id": "deepseek-balance",
+  "name": "DeepSeek Balance",
+  "version": "1.0.0",
+  "description": "在输入框下方显示 DeepSeek 账户余额与今日已用，点击查看明细（充值/赠金/峰谷时段）",
+  "author": {
+    "name": "gasdyueer",
+    "url": "https://github.com/gasdyueer"
+  },
+  "main": "main.js",
+  "engines": {
+    "alma": "^0.1.0"
+  },
+  "type": "ui",
+  "permissions": [
+    "notifications",
+    "chat:read",
+    "settings:read",
+    "settings:write",
+    "network:fetch",
+    "filesystem:read"
+  ],
+  "activationEvents": [
+    "onStartup"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "id": "deepseek-balance.open",
+        "title": "DeepSeek 余额：查看明细",
+        "category": "DeepSeek Balance"
+      },
+      {
+        "id": "deepseek-balance.refresh",
+        "title": "DeepSeek 余额：立即刷新",
+        "category": "DeepSeek Balance"
+      }
+    ],
+    "components": {
+      "statusBar": [
+        {
+          "id": "deepseek-balance.statusBar",
+          "alignment": "right",
+          "priority": 90,
+          "command": "deepseek-balance.open"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DeepSeek Balance",
+      "properties": {
+        "deepseekBalance.refreshMinutes": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 1440,
+          "description": "自动刷新间隔（分钟）"
+        },
+        "deepseekBalance.showToday": {
+          "type": "boolean",
+          "default": true,
+          "description": "在状态栏显示今日已用金额"
+        },
+        "deepseekBalance.showPeak": {
+          "type": "boolean",
+          "default": true,
+          "description": "在明细中显示峰时/谷时时间段"
+        },
+        "deepseekBalance.lowBalance": {
+          "type": "number",
+          "default": 5,
+          "minimum": 0,
+          "description": "低余额提醒阈值（低于该值状态栏加 ⚠）"
+        },
+        "deepseekBalance.providerId": {
+          "type": "string",
+          "default": "deepseek",
+          "description": "从哪个 Alma 提供商自动读取 API Key"
+        },
+        "deepseekBalance.apiKeyFile": {
+          "type": "string",
+          "default": "",
+          "description": "可选：从一个纯文本文件读取 API Key（留空则跳过该来源，优先用 Alma 里已配置的 DeepSeek 提供商）"
+        },
+        "deepseekBalance.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "手动填写 API Key（留空则自动读取 Alma 的 DeepSeek 提供商）"
+        }
+      }
+    }
+  }
+}
